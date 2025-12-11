@@ -1,0 +1,12 @@
+form,
+#colorSchemeDisplay {
+  outline: 1px solid green;;
+}
+
+form {
+  padding: 1em;
+}
+
+#colorSchemeDisplay {
+  height: 500px;
+}

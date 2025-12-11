@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Color Scheme Generator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="icon" href="favicon.png">
+</head>
+<body>
+  <main>
+    <form id="color-form">
+      <!-- There's no label, what should we do for a11y? -->
+      <input type="color" id="color-picker" name="color-picker" value="#ff0000">
+      <select id="mode-type" name="mode-type">
+        <option value="monochrome">Monochromatic</option>
+        <option value="monochrome-dark">Monochromatic Dark</option>
+        <option value="monochrome-light">Monochromatic Light</option>
+        <option value="analogic">Analogous</option>
+        <option value="complement">Complementary</option>
+        <option value="analogic-complement">Analogous Complementary</option>
+        <option value="triad">Triadic</option>
+        <option value="quad">Tetradic</option>
+      </select>
+      <button type="submit">Get Color Scheme</button>
+    </form>
+    <section id="color-scheme-display"></section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

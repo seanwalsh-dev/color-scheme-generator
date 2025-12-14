@@ -1,12 +1,62 @@
-form,
-#colorSchemeDisplay {
-  outline: 1px solid green;;
+body {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
 }
 
-form {
+main {
+  height: auto;
+  width: 800px;
+  outline: 1px solid black;
+  margin-top: 1em;
+
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-evenly;
   padding: 1em;
 }
 
-#colorSchemeDisplay {
-  height: 500px;
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#color-container {
+  height: auto;
+  width: 800px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.color-swatch {
+  height: 460px;
+  width: 20%;
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.color-info {
+  background-color: white;
+  color: black;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.color.name {
+  width: 100%;
+  height: auto;
+} 
+
+.color-code-p {
+  font-weight: bold;
 }

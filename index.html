@@ -12,20 +12,41 @@
   <main>
     <form id="color-form">
       <!-- There's no label, what should we do for a11y? -->
-      <input type="color" id="color-picker" name="color-picker" value="#ff0000">
-      <select id="mode-type" name="mode-type">
-        <option value="monochrome">Monochromatic</option>
-        <option value="monochrome-dark">Monochromatic Dark</option>
-        <option value="monochrome-light">Monochromatic Light</option>
-        <option value="analogic">Analogous</option>
-        <option value="complement">Complementary</option>
-        <option value="analogic-complement">Analogous Complementary</option>
-        <option value="triad">Triadic</option>
-        <option value="quad">Tetradic</option>
-      </select>
-      <button type="submit">Get Color Scheme</button>
+      <div class="form-container">
+        <label for="color-picker">Pick a Base Color:
+          <input type="color" id="color-picker" name="color-picker" value="#ff0000">
+        </label>
+        <label for="mode-type">Choose a color scheme: 
+          <select id="mode-type" name="mode-type">
+            <option value="monochrome">Monochromatic</option>
+            <option value="monochrome-dark">Monochromatic Dark</option>
+            <option value="monochrome-light">Monochromatic Light</option>
+            <option value="analogic">Analogous</option>
+            <option value="complement">Complementary</option>
+            <option value="analogic-complement">Analogous Complementary</option>
+            <option value="triad">Triadic</option>
+            <option value="quad">Tetradic</option>
+          </select>
+        </label>
+        <label for="color-count">Number of Colors:
+          <input type="number" id="color-count" name="color-count" min="1" max="99" value="5">
+        </label>
+        <button type="submit">Get Color Scheme</button>
+      </div>
+      <div class="form-container">
+        <label for="color-code">Color Code: 
+          <select id="color-code" name="color-format">
+            <option value="hex" selected>HEX</option>
+            <option value="rgb">RGB</option>
+            <option value="hsl">HSL</option>
+            <option value="cmyk">CMYK</option>
+            <option value="xyz">XYZ</option>
+            <option value="hsv">HSV</option>
+          </select>
+        </label>
+      </div>
     </form>
-    <section id="color-scheme-display"></section>
+    <section id="color-container"></section>
   </main>
   <script src="main.js"></script>
 </body>

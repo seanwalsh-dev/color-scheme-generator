@@ -43,6 +43,7 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .color-info {
@@ -59,4 +60,11 @@ label {
 
 .color-code-p {
   font-weight: bold;
+}
+
+.color-name,
+.color-info,
+.color-code-p {
+  cursor: pointer;
+  pointer-events: none;
 }

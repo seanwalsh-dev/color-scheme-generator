@@ -11,7 +11,7 @@ GOALS
   + Choose color scheme mode in a <select> box
   + Clicking button makes request to the Color API to get a color scheme
   + Display the scheme colors and hex values on the page
-  - Stretch goal: click hex values to copy to clipboard.
+  + Stretch goal: click hex values to copy to clipboard.
 
 
 
@@ -19,11 +19,13 @@ GOALS
 TODO: 
   
   + input for type of color code to show (hex, rgb, hsl, cmyk, etc)
-  - copy to clipboard function
-  - differnt max limits for color count based on scheme type
+  + copy to clipboard function
+  - if number of colors is 4 or less, change the width of each color swatch
   - light/dark mode toggle
   - better styling/layout
   
+BUGS:
+
 
 */
 
@@ -94,15 +96,56 @@ function getColorData(data) {
   colorContainer.innerHTML = ``
   data.colors.forEach(color => {
     colorContainer.innerHTML += `
-      <div class="color-swatch" style="background-color: ${color.hex.value};">
+      <div
+        class="color-swatch" 
+        style="background-color: ${color.hex.value};"
+        data-code="${color[selectedColorCode].value}"
+      >
         <img 
           src="${color.image.named}" 
           alt="${color.name.value} color swatch"
           class="color-name"
+          
         >
-        <div class="color-info">
-          <p class="color-code-p">${color[selectedColorCode].value}</p>
+        <div 
+          class="color-info"
+          
+        >
+          <p 
+            class="color-code-p"
+            
+          >
+            ${color[selectedColorCode].value}
+          </p>
       </div>
     ` 
   })
 }
+
+// COPY TO CLIPBOARD ON CLICK
+
+let codeToCopy = '';
+
+colorContainer.onclick = function(e) {
+  // Get the element that was clicked, or its nearest parent 'color-swatch'
+  const swatchElement = e.target.closest('.color-swatch');
+  
+  if (swatchElement) {
+      // Store the code from the reliable parent element
+      codeToCopy = swatchElement.dataset.code;
+      // Execute the copy command
+      document.execCommand("copy");
+  }
+}
+
+colorContainer.addEventListener("copy", function(e) {
+  e.preventDefault();
+  
+  if (e.clipboardData && codeToCopy) {
+    // Use the stored code instead of e.target.dataset.code
+    e.clipboardData.setData("text/plain", codeToCopy);
+    console.log(e.clipboardData.getData("text"))
+    // Reset the variable immediately after use
+    codeToCopy = ''; 
+  }
+});

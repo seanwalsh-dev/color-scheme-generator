@@ -37,6 +37,7 @@ const form = document.getElementById('color-form');
 const colorContainer = document.getElementById('color-container');
 const colorCount = document.getElementById('color-count');
 const colorCodeSelect = document.getElementById('color-code');
+const colorSwatch = document.querySelector('.color-swatch');
 
 let currnetApiData = null;
 
@@ -121,6 +122,21 @@ function getColorData(data) {
     ` 
   })
 }
+
+// CHANGE WIDTH OF COLOR SWATCHES BASED ON NUMBER OF COLORS
+
+// BUGS
+
+// colorCount.addEventListener('change', adjustColorSwatchWidth)
+
+// function adjustColorSwatchWidth() {
+//   if (colorCount.value > 4 ){
+//     dataset.code.style.width = '20%'
+//   }
+//   else if (colorCount.value === '4'){
+//     dataset.code.style.width = '25%'
+//   }
+// }
 
 // COPY TO CLIPBOARD ON CLICK
 
